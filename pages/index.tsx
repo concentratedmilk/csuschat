@@ -2,7 +2,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter, Roboto_Mono } from '@next/font/google'
 import Herky from '../public/mascot-removebg.png'
-
+import React from 'react'
+import Blob from '../public/blob.svg'
+import EmailIcon from '../public/email-icon.svg'
+import LockIcon from '../public/lock-icon.svg'
+import GradIcon from '../public/college-icon.svg'
 
 const inter = Inter({ subsets: ['latin'] }) 
 const robot = Roboto_Mono( { subsets: ['cyrillic'],  weight: '400'},)
@@ -20,22 +24,62 @@ export default function Home() {
         <div className='self-center p-4 text-center'>
           <h1 className={` ${robot.className} font-light text-4xl text-slate-600`}><span className='text-green-500'>csus</span>chat.com</h1>
         </div>
-        <div className={` flex flex-row min-w-full gap-2 bg-slate-100 justify-evenly p-1.5 font-bold`}>
+        <div className={` flex flex-row min-w-full gap-2 bg-slate-100 justify-evenly p-1.5 font-medium`}>
           <a href="">about</a>
           <a href="">github</a>
           <a href="">register</a>
         </div>
+
         <div className={` min-h-screen min-w-full flex flex-col justify-start items-center text-center`}>
-          <div className={`min-h-3/5 p-6 `}>
-            <div className={` ${inter.className}text-center flex-col flex gap-4 items-center w-full `}>
+          <div className={`min-h-3/5 p-6 mt-1`}>
+            <div className={` ${inter.className}text-center flex-col flex gap-4 items-center w-full my-4 `}>
               <h2 className='font-medium text-4xl w-1/2' >Connect with old friends and make new ones, exclusively for CSUS students.</h2>
             </div>
             {/* picture of herky and some extra information */}
-            <div className="flex flex-row justify-center">
+
+
+            <div className="flex flex-row justify-center py-10  flex-wrap" >
               {/* herky */}
-              <Image src={Herky} alt="csus school mascot herky posing in football field"/>
+              <div className="relative">
+                <Image src={Herky} className="bg-blob bg-no-repeat bg-contain"  alt="csus school mascot herky posing in football field"  />
+
+              </div>
+
+              
               {/* information */}
-              <div>
+              <div className={`flex flex-col justify-start align-baseline items-center  min-w-2/5  w-4/5 border-2 px-10 py-8 rounded-sm shadow-lg gap-8`}>
+                {/* email only tab */}
+                
+                <div className=" align-baseline flex flex-row w-4/5">
+                  <Image className=' self-center mr-8' alt="email icon svg" src={EmailIcon} width={60}/>
+                  <div className='flex flex-col text-start gap-0.5 w-2/3'>
+                    <h1 className="font-semibold text-lg">Only Students</h1>
+                    <p>To ensure a community of peers, registration is limited to students with @csus.edu email addresses.</p>
+                  </div>
+                </div>
+
+                {/* secure tab */}
+                <div className=" align-baseline flex flex-row w-4/5  ">
+                  <Image className=' self-center mr-8' alt="email icon svg" src={LockIcon} width={60}/>
+                  <div className='flex flex-col text-start gap-0.5 w-2/3'>
+                    <h1 className="font-semibold text-lg">Secure</h1>
+                    <p>Our website leverages the power and security of Amazon Web Services and is built on an open-source platform to guarantee transparency and secure operations.</p>
+                  </div>
+                </div>
+
+                <div className=" align-baseline flex flex-row w-4/5 ">
+                  <Image className=' self-center mr-8' alt="email icon svg" src={GradIcon} width={60}/>
+                  <div className='flex flex-col text-start gap-0.5 w-2/3'>
+                    <h1 className="font-semibold text-lg">Student-Driven</h1>
+                    <p>This project was developed by students and utilizes the Next.js framework. We welcome constructive feedback to continuously improve and enhance the user experience.</p>
+                  </div>
+                </div>
+
+                <h2 className="text-lg mt-8 font-semibold p-2 w-4/5">
+                  Our website is designed to provide a fast and seamless experience with the integration of real-time web sockets for live chatting. The security of our platform is ensured by utilizing Amazon Web Services. The responsive design is achieved through the use of the Next.js framework.
+                </h2>
+
+                
 
               </div>
 
