@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Inter, Manrope } from '@next/font/google'
 import Herky from '../public/mascot-removebg.png'
 import React from 'react'
@@ -72,7 +73,9 @@ export default function Home() {
                 </h2>
 
                 <button className="w-fit h-fit self-end bg-blue-500 px-4 py-1 rounded-sm mr-32 font-semibold shadow-md">
+                  <Link href="/sign-in">
                   REGISTER
+                  </Link>
                 </button>
                 
 
