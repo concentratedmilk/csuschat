@@ -12,12 +12,16 @@ const RegisterPage: React.FC<Props> = () => {
     event.preventDefault();
 
     if (!email.endsWith("@csus.edu")) {
-      alert("Email address must be a @csus.edu address");
+      setErrorMessage("Email address must be a @csus.edu address");
       return;
     }
 
+    setErrorMessage(null);
+
     console.log("Email:", email);
     console.log("Password:", password);
+
+    //right here we need to add the functionality to create an account
   };
 
   return (
@@ -29,7 +33,9 @@ const RegisterPage: React.FC<Props> = () => {
           </h2>
           <div className="mb-5">
             <input
-              className="w-full p-3 text-gray-800 bg-gray-200 rounded"
+              className={`w-full p-3 text-gray-800 bg-gray-200 rounded ${
+                email.endsWith("@csus.edu") ? "bg-green-200" : ""
+              }`}
               type="email"
               placeholder="Email"
               value={email}
@@ -63,6 +69,13 @@ const RegisterPage: React.FC<Props> = () => {
             </p>
           </div>
         </form>
+        {errorMessage && (
+            <div className="fixed bottom-0 right-0 m-6 p-3">
+                <div className="bg-red-500 text-neutral-200 p-3 rounded font-mono font-bold">
+                    {errorMessage}
+                </div>
+            </div>
+        )}
       </div>
     </div>
   );
