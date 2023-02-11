@@ -14,6 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 const manrope = Manrope({ subsets: ['latin'] }) 
 
 export default function Home() {
+  console.log(process.env.NEXT_PUBLIC_AWS_ACCESS);
   return (
     <>
       <Head>
